@@ -43,7 +43,10 @@ class MainPage(webapp2.RequestHandler):
 class Create(webapp2.RequestHandler):
     def post(self):
         post = Post(parent=PAEST_ROOT)
-        Post.query().order(Post.date).fetch(1, offset=10).delete()
+        for old in Post.query().order(-Post.date).fetch(10, offset=10):
+            print "DELETE:", old
+            old.key.delete()
+
         if users.get_current_user():
             post.author = users.get_current_user()
         post.content = self.request.get('content')
