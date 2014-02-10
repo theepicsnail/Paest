@@ -1,0 +1,26 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="static/paest.css"/>
+</head>
+<head>
+<script src="/static/run_prettify.js"></script>
+</head>
+<body onload="prettyprint()">
+{% if post %}
+{% autoescape true %}
+Post by {% if post.author %}{{ post.author }}{% else %}Anonymous{% endif %}:
+<a href="/raw/{{ post.key.id() }}">Raw</a>
+<pre class="prettyprint linenums">
+{{ post.content }}
+</pre>
+at {{ post.date }}
+{% endautoescape %}
+{% else %}
+No post found.
+{% endif %}
+<form action="/create" method="post">
+<input type="submit" value="submit">
+<textarea name="content" rows="3" cols="60"></textarea>
+</form>
+</body>
+</html>
