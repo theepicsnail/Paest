@@ -1,0 +1,56 @@
+#splitter {
+  height: 100%;
+  width: 100%;
+  background: #855B46;
+  /* No padding allowed */
+}
+
+#left {
+  background: #855B46;
+  overflow: auto;
+  width: 50%;   /* optional, initial splitbar position */
+  min-width: 50px;  /* optional */
+  height: 100%;
+  /* No margin or border allowed */
+}
+
+#right {
+  background: #855B46;
+  overflow: auto;
+  min-width: 100px;
+  height: 100%;
+  /* No margin or border allowed */
+}
+
+#splitter .vsplitbar {
+  width: 8px;
+  height: 100%;
+  cursor: e-resize; /* in case col-resize isn't supported */
+  cursor: col-resize;
+  background: #66B1CC;
+}
+#splitter .vsplitbar.active, #MySplitter .vsplitbar:hover {
+  background: #D8E7ED;
+}
+
+body {
+  background: #855B46;
+  margin: 0px;
+  height:100%;
+}
+
+textarea {
+  background: #855B46;
+  position:absolute;
+  top:0px;
+  bottom:2em;
+  width:100%;
+  margin: 0px;
+  font-size: larger;
+}
+input {
+  position:absolute;
+  bottom:0em;
+  height:2em;
+  width:100%;
+}
